@@ -1,0 +1,15 @@
+const Hexagon = ({ size }) => {
+    const points = calculateHexagonPoints(0, 0, size);
+    return <polygon points={points} style={{ fill: 'blue', stroke: 'black', strokeWidth: 1 }} />;
+};
+
+const calculateHexagonPoints = (x, y, size) => {
+    let points = [];
+    for (let i = 0; i < 6; i++) {
+        let angle = 2 * Math.PI / 6 * (i + 0.5);
+        let pointX = x + size * Math.cos(angle);
+        let pointY = y + size * Math.sin(angle);
+        points.push(`${pointX},${pointY}`);
+    }
+    return points.join(" ");
+};
